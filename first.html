@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src = "jquery-3.6.0.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<p>
+    Этот скрипт поможет вам узнать, високосный год или нет <br>
+    Скрипт успешно работает на годах от 1900 до 3000, введите год в этом диапазоне
+</p>
+<form action="first.php" id="yearForm">
+    <input type="text" id="year" placeholder="Введите год"/><br>
+    <input type="submit" value="Проверить" />
+</form>
+<div id="result"></div>
+<script type="text/javascript">
+    $("#yearForm").submit(function(event) {
+        event.preventDefault();
+        $.post('first.php', {'year':$('#year').val()},
+            function(data) {
+                $('#result').html(data);
+            });
+    });
+</script>
+</body>
+</html>
