@@ -16,8 +16,8 @@
 </form>
 <div id="result"></div>
 <script type="text/javascript">
-    $("#yearForm").submit(function(event) {
-        event.preventDefault();
+    $("#yearForm").submit(function(event) {    // Функция jquery
+        event.preventDefault();            // Блокируем оычную отправку формы, чтобы не было переадресации
         $.post('first.php', {'year':$('#year').val()},
             function(data) {
                 $('#result').html(data);
